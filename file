@@ -1,0 +1,601 @@
+[2023-11-08T22:11:36] [INFO] Building image...
+sha256:5fd61d270cbe6750d9c5acfd7b859872a60124e6ae300af3a9d8d61c2b99077d
+[2023-11-08T22:11:36] [INFO] Running checker...
+
+
+### CHECKER
+
+
+make clean_src clean_snippets src snippets
+make[1]: Entering directory '/build/student/assignment-memory-allocator/tests'
+make -C /build/student/assignment-memory-allocator/src clean
+make[2]: Entering directory '/build/student/assignment-memory-allocator/src'
+rm -f ../src.zip
+rm -f libosmem.so
+rm -f osmem.o /build/student/assignment-memory-allocator/utils/printf.o
+make[2]: Leaving directory '/build/student/assignment-memory-allocator/src'
+rm -rf snippets/test-all snippets/test-calloc-arrays snippets/test-calloc-block-reuse snippets/test-calloc-coalesce-big snippets/test-calloc-coalesce snippets/test-calloc-expand-block snippets/test-calloc-no-preallocate snippets/test-calloc-no-split snippets/test-calloc-preallocate snippets/test-calloc-split-first snippets/test-calloc-split-last snippets/test-calloc-split-middle snippets/test-calloc-split-one-block snippets/test-calloc-split-vector snippets/test-malloc-arrays snippets/test-malloc-block-reuse snippets/test-malloc-coalesce-big snippets/test-malloc-coalesce snippets/test-malloc-expand-block snippets/test-malloc-no-preallocate snippets/test-malloc-no-split snippets/test-malloc-preallocate snippets/test-malloc-split-first snippets/test-malloc-split-last snippets/test-malloc-split-middle snippets/test-malloc-split-one-block snippets/test-malloc-split-vector snippets/test-realloc-arrays snippets/test-realloc-block-reuse snippets/test-realloc-coalesce-big snippets/test-realloc-coalesce snippets/test-realloc-expand-block snippets/test-realloc-no-preallocate snippets/test-realloc-no-split snippets/test-realloc-preallocate snippets/test-realloc-split-first snippets/test-realloc-split-last snippets/test-realloc-split-middle snippets/test-realloc-split-one-block snippets/test-realloc-split-vector
+make -C /build/student/assignment-memory-allocator/src
+make[2]: Entering directory '/build/student/assignment-memory-allocator/src'
+gcc -fPIC -Wall -Wextra -g -I/build/student/assignment-memory-allocator/utils  -c -o osmem.o osmem.c
+osmem.c: In function 'os_free':
+osmem.c:194:14: warning: unused variable 'current' [-Wunused-variable]
+  194 |  block_meta *current = (block_meta *)head_list;
+      |              ^~~~~~~
+osmem.c: In function 'os_realloc':
+osmem.c:263:14: warning: unused variable 'current' [-Wunused-variable]
+  263 |  block_meta *current = (block_meta *)head_list;
+      |              ^~~~~~~
+gcc -fPIC -Wall -Wextra -g -I/build/student/assignment-memory-allocator/utils  -c -o /build/student/assignment-memory-allocator/utils/printf.o /build/student/assignment-memory-allocator/utils/printf.c
+gcc -shared -o libosmem.so osmem.o /build/student/assignment-memory-allocator/utils/printf.o
+make[2]: Leaving directory '/build/student/assignment-memory-allocator/src'
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-all snippets/test-all.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-arrays snippets/test-calloc-arrays.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-block-reuse snippets/test-calloc-block-reuse.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-coalesce-big snippets/test-calloc-coalesce-big.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-coalesce snippets/test-calloc-coalesce.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-expand-block snippets/test-calloc-expand-block.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-no-preallocate snippets/test-calloc-no-preallocate.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-no-split snippets/test-calloc-no-split.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-preallocate snippets/test-calloc-preallocate.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-split-first snippets/test-calloc-split-first.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-split-last snippets/test-calloc-split-last.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-split-middle snippets/test-calloc-split-middle.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-split-one-block snippets/test-calloc-split-one-block.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-calloc-split-vector snippets/test-calloc-split-vector.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-arrays snippets/test-malloc-arrays.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-block-reuse snippets/test-malloc-block-reuse.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-coalesce-big snippets/test-malloc-coalesce-big.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-coalesce snippets/test-malloc-coalesce.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-expand-block snippets/test-malloc-expand-block.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-no-preallocate snippets/test-malloc-no-preallocate.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-no-split snippets/test-malloc-no-split.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-preallocate snippets/test-malloc-preallocate.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-split-first snippets/test-malloc-split-first.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-split-last snippets/test-malloc-split-last.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-split-middle snippets/test-malloc-split-middle.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-split-one-block snippets/test-malloc-split-one-block.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-malloc-split-vector snippets/test-malloc-split-vector.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-arrays snippets/test-realloc-arrays.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-block-reuse snippets/test-realloc-block-reuse.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-coalesce-big snippets/test-realloc-coalesce-big.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-coalesce snippets/test-realloc-coalesce.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-expand-block snippets/test-realloc-expand-block.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-no-preallocate snippets/test-realloc-no-preallocate.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-no-split snippets/test-realloc-no-split.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-preallocate snippets/test-realloc-preallocate.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-split-first snippets/test-realloc-split-first.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-split-last snippets/test-realloc-split-last.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-split-middle snippets/test-realloc-split-middle.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-split-one-block snippets/test-realloc-split-one-block.c -L/build/student/assignment-memory-allocator/src -losmem
+gcc -I/build/student/assignment-memory-allocator/utils -fPIC -Wall -Wextra -g -o snippets/test-realloc-split-vector snippets/test-realloc-split-vector.c -L/build/student/assignment-memory-allocator/src -losmem
+make[1]: Leaving directory '/build/student/assignment-memory-allocator/tests'
+python3 run_tests.py
+--- /build/student/assignment-memory-allocator/tests/snippets/test-all.out
++++ /build/student/assignment-memory-allocator/tests/ref/test-all.ref
+@@ -141,24 +141,24 @@
+   mmap (['0', '3930032', 'PROT_READ | PROT_WRITE', 'MAP_PRIVATE | MAP_ANON', '-1', '0'])  = <mapped-addr8>
+ os_realloc (['HeapStart + 0x4a90', '27322'])                                              = HeapStart + 0xa3c8
+ os_realloc (['HeapStart + 0x9398', '27322'])                                              = HeapStart + 0x10ea8
+-os_realloc (['HeapStart + 0x2080', '82'])                                                 = HeapStart + 0x8a48
++os_realloc (['HeapStart + 0x2080', '82'])                                                 = HeapStart + 0x4ce0
+ os_realloc (['HeapStart + 0x93d8', '82'])                                                 = HeapStart + 0x93d8
+ os_realloc (['HeapStart + 0x3718', '5120'])                                               = HeapStart + 0x17988
+ os_realloc (['<mapped-addr5> + 0x20', '5120'])                                            = HeapStart + 0x18da8
+   munmap (['<mapped-addr5>', '223488'])                                                   = 0
+ os_realloc (['HeapStart + 0x7ef8', '5120'])                                               = HeapStart + 0x1a1c8
+-os_realloc (['HeapStart + 0x4ca8', '47249'])                                              = HeapStart + 0x20020
+-  brk (['HeapStart + 0x2b8b8'])                                                           = HeapStart + 0x2b8b8
+-os_realloc (['HeapStart + 0x41d0', '47249'])                                              = HeapStart + 0x2b8d8
+-  brk (['HeapStart + 0x37170'])                                                           = HeapStart + 0x37170
+-os_realloc (['HeapStart + 0x8258', '47249'])                                              = HeapStart + 0x37190
+-  brk (['HeapStart + 0x42a28'])                                                           = HeapStart + 0x42a28
+-os_realloc (['HeapStart + 0x1028', '103132'])                                             = HeapStart + 0x42a48
+[...]
+test-malloc-no-preallocate       ........................ passed ...   2
+test-malloc-preallocate          ........................ passed ...   3
+test-malloc-arrays               ........................ passed ...   5
+test-malloc-block-reuse          ........................ passed ...   3
+test-malloc-expand-block         ........................ passed ...   2
+test-malloc-no-split             ........................ passed ...   2
+test-malloc-split-one-block      ........................ passed ...   3
+test-malloc-split-first          ........................ passed ...   2
+test-malloc-split-last           ........................ passed ...   2
+test-malloc-split-middle         ........................ passed ...   3
+test-malloc-split-vector         ........................ passed ...   2
+test-malloc-coalesce             ........................ passed ...   3
+test-malloc-coalesce-big         ........................ passed ...   3
+test-calloc-no-preallocate       ........................ passed ...   1
+test-calloc-preallocate          ........................ passed ...   1
+test-calloc-arrays               ........................ passed ...   5
+test-calloc-block-reuse          ........................ passed ...   1
+test-calloc-expand-block         ........................ passed ...   1
+test-calloc-no-split             ........................ passed ...   1
+test-calloc-split-one-block      ........................ passed ...   1
+test-calloc-split-first          ........................ passed ...   1
+test-calloc-split-last           ........................ passed ...   1
+test-calloc-split-middle         ........................ passed ...   1
+test-calloc-split-vector         ........................ passed ...   2
+test-calloc-coalesce             ........................ passed ...   2
+test-calloc-coalesce-big         ........................ passed ...   2
+test-realloc-no-preallocate      ........................ passed ...   1
+test-realloc-preallocate         ........................ passed ...   1
+test-realloc-arrays              ........................ passed ...   3
+test-realloc-block-reuse         ........................ passed ...   3
+test-realloc-expand-block        ........................ passed ...   2
+test-realloc-no-split            ........................ passed ...   3
+test-realloc-split-one-block     ........................ passed ...   3
+test-realloc-split-first         ........................ passed ...   3
+test-realloc-split-last          ........................ passed ...   3
+test-realloc-split-middle        ........................ passed ...   2
+test-realloc-split-vector        ........................ passed ...   2
+test-realloc-coalesce            ........................ passed ...   3
+test-realloc-coalesce-big        ........................ passed ...   1
+test-all                         ........................ failed ...   0
+
+Checker:                                                            85/100
+
+
+### LINTER
+
+
+cd .. && checkpatch.pl -f src/*.c tests/snippets/*.c
+-----------
+src/osmem.c
+-----------
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#47: FILE: src/osmem.c:47:
++    block_meta *current = (block_meta *)head_list;$
+
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#48: FILE: src/osmem.c:48:
++    block_meta *best_fit = NULL;$
+
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#50: FILE: src/osmem.c:50:
++    while (current != NULL) {$
+
+ERROR:CODE_INDENT: code indent should use tabs where possible
+#51: FILE: src/osmem.c:51:
++        if (current->status == STATUS_FREE && current->size >= size) {$
+
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#51: FILE: src/osmem.c:51:
++        if (current->status == STATUS_FREE && current->size >= size) {$
+
+WARNING:SUSPECT_CODE_INDENT: suspect code indent for conditional statements (8, 12)
+#51: FILE: src/osmem.c:51:
++        if (current->status == STATUS_FREE && current->size >= size) {
++            if (best_fit == NULL || current->size < best_fit->size) {
+
+ERROR:CODE_INDENT: code indent should use tabs where possible
+#52: FILE: src/osmem.c:52:
++            if (best_fit == NULL || current->size < best_fit->size) {$
+
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#52: FILE: src/osmem.c:52:
++            if (best_fit == NULL || current->size < best_fit->size) {$
+
+WARNING:BRACES: braces {} are not necessary for single statement blocks
+#52: FILE: src/osmem.c:52:
++            if (best_fit == NULL || current->size < best_fit->size) {
++                best_fit = current;
++            }
+
+ERROR:CODE_INDENT: code indent should use tabs where possible
+#53: FILE: src/osmem.c:53:
++                best_fit = current;$
+
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#53: FILE: src/osmem.c:53:
++                best_fit = current;$
+
+ERROR:CODE_INDENT: code indent should use tabs where possible
+#54: FILE: src/osmem.c:54:
++            }$
+
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#54: FILE: src/osmem.c:54:
++            }$
+
+ERROR:CODE_INDENT: code indent should use tabs where possible
+#55: FILE: src/osmem.c:55:
++        }$
+
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#55: FILE: src/osmem.c:55:
++        }$
+
+ERROR:CODE_INDENT: code indent should use tabs where possible
+#56: FILE: src/osmem.c:56:
++        current = current->next;$
+
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#56: FILE: src/osmem.c:56:
++        current = current->next;$
+
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#57: FILE: src/osmem.c:57:
++    }$
+
+WARNING:LEADING_SPACE: please, no spaces at the start of a line
+#59: FILE: src/osmem.c:59:
++    return best_fit;$
+
+WARNING:LINE_SPACING: Missing a blank line after declarations
+#264: FILE: src/osmem.c:264:
++	block_meta *current = (block_meta *)head_list;
++	if (size == 0) {
+
+WARNING:LINE_SPACING: Missing a blank line after declarations
+#286: FILE: src/osmem.c:286:
++	size_t len = old_memory_block->size;
++	if (old_memory_block->status == STATUS_ALLOC) {
+
+WARNING:DEEP_INDENTATION: Too many leading tabs - consider code refactoring
+#302: FILE: src/osmem.c:302:
++						if (old_memory_block->size >= alignment_size) {
+
+ERROR:SPACING: space required before the open brace '{'
+#307: FILE: src/osmem.c:307:
++					} else if (new_memory_block != NULL){
+
+WARNING:UNNECESSARY_ELSE: else is not generally useful after a break or return
+#313: FILE: src/osmem.c:313:
++						return (void *)alignment_memory(new_memory_block + 1);
++					} else {
+
+ERROR:TRAILING_WHITESPACE: trailing whitespace
+#331: FILE: src/osmem.c:331:
++^I^I}^I$
+
+ERROR:TRAILING_WHITESPACE: trailing whitespace
+#351: FILE: src/osmem.c:351:
++^I$
+
+total: 9 errors, 17 warnings, 354 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+NOTE: Whitespace errors detected.
+      You may wish to use scripts/cleanpatch or scripts/cleanfile
+
+src/osmem.c has style problems, please review.
+-------------------------
+tests/snippets/test-all.c
+-------------------------
+WARNING:SPACE_BEFORE_TAB: please, no space before tabs
+#82: FILE: tests/snippets/test-all.c:82:
++^I// ^Ios_free(ptrs_sm1[i]);$
+
+WARNING:SPACE_BEFORE_TAB: please, no space before tabs
+#83: FILE: tests/snippets/test-all.c:83:
++^I// ^Ios_free(ptrs_sm2[i]);$
+
+total: 0 errors, 2 warnings, 87 lines checked
+
+NOTE: For some of the reported defects, checkpatch may be able to
+      mechanically convert to the typical style using --fix or --fix-inplace.
+
+tests/snippets/test-all.c has style problems, please review.
+-----------------------------------
+tests/snippets/test-calloc-arrays.c
+-----------------------------------
+total: 0 errors, 0 warnings, 51 lines checked
+
+tests/snippets/test-calloc-arrays.c has no obvious style problems and is ready for submission.
+----------------------------------------
+tests/snippets/test-calloc-block-reuse.c
+----------------------------------------
+total: 0 errors, 0 warnings, 40 lines checked
+
+tests/snippets/test-calloc-block-reuse.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-calloc-coalesce-big.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 27 lines checked
+
+tests/snippets/test-calloc-coalesce-big.c has no obvious style problems and is ready for submission.
+-------------------------------------
+tests/snippets/test-calloc-coalesce.c
+-------------------------------------
+total: 0 errors, 0 warnings, 44 lines checked
+
+tests/snippets/test-calloc-coalesce.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-calloc-expand-block.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 21 lines checked
+
+tests/snippets/test-calloc-expand-block.c has no obvious style problems and is ready for submission.
+-------------------------------------------
+tests/snippets/test-calloc-no-preallocate.c
+-------------------------------------------
+total: 0 errors, 0 warnings, 19 lines checked
+
+tests/snippets/test-calloc-no-preallocate.c has no obvious style problems and is ready for submission.
+-------------------------------------
+tests/snippets/test-calloc-no-split.c
+-------------------------------------
+total: 0 errors, 0 warnings, 38 lines checked
+
+tests/snippets/test-calloc-no-split.c has no obvious style problems and is ready for submission.
+----------------------------------------
+tests/snippets/test-calloc-preallocate.c
+----------------------------------------
+total: 0 errors, 0 warnings, 13 lines checked
+
+tests/snippets/test-calloc-preallocate.c has no obvious style problems and is ready for submission.
+----------------------------------------
+tests/snippets/test-calloc-split-first.c
+----------------------------------------
+total: 0 errors, 0 warnings, 26 lines checked
+
+tests/snippets/test-calloc-split-first.c has no obvious style problems and is ready for submission.
+---------------------------------------
+tests/snippets/test-calloc-split-last.c
+---------------------------------------
+total: 0 errors, 0 warnings, 33 lines checked
+
+tests/snippets/test-calloc-split-last.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-calloc-split-middle.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 45 lines checked
+
+tests/snippets/test-calloc-split-middle.c has no obvious style problems and is ready for submission.
+--------------------------------------------
+tests/snippets/test-calloc-split-one-block.c
+--------------------------------------------
+total: 0 errors, 0 warnings, 22 lines checked
+
+tests/snippets/test-calloc-split-one-block.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-calloc-split-vector.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 39 lines checked
+
+tests/snippets/test-calloc-split-vector.c has no obvious style problems and is ready for submission.
+-----------------------------------
+tests/snippets/test-malloc-arrays.c
+-----------------------------------
+total: 0 errors, 0 warnings, 51 lines checked
+
+tests/snippets/test-malloc-arrays.c has no obvious style problems and is ready for submission.
+----------------------------------------
+tests/snippets/test-malloc-block-reuse.c
+----------------------------------------
+total: 0 errors, 0 warnings, 36 lines checked
+
+tests/snippets/test-malloc-block-reuse.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-malloc-coalesce-big.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 28 lines checked
+
+tests/snippets/test-malloc-coalesce-big.c has no obvious style problems and is ready for submission.
+-------------------------------------
+tests/snippets/test-malloc-coalesce.c
+-------------------------------------
+total: 0 errors, 0 warnings, 42 lines checked
+
+tests/snippets/test-malloc-coalesce.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-malloc-expand-block.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 21 lines checked
+
+tests/snippets/test-malloc-expand-block.c has no obvious style problems and is ready for submission.
+-------------------------------------------
+tests/snippets/test-malloc-no-preallocate.c
+-------------------------------------------
+total: 0 errors, 0 warnings, 15 lines checked
+
+tests/snippets/test-malloc-no-preallocate.c has no obvious style problems and is ready for submission.
+-------------------------------------
+tests/snippets/test-malloc-no-split.c
+-------------------------------------
+total: 0 errors, 0 warnings, 38 lines checked
+
+tests/snippets/test-malloc-no-split.c has no obvious style problems and is ready for submission.
+----------------------------------------
+tests/snippets/test-malloc-preallocate.c
+----------------------------------------
+total: 0 errors, 0 warnings, 13 lines checked
+
+tests/snippets/test-malloc-preallocate.c has no obvious style problems and is ready for submission.
+----------------------------------------
+tests/snippets/test-malloc-split-first.c
+----------------------------------------
+total: 0 errors, 0 warnings, 31 lines checked
+
+tests/snippets/test-malloc-split-first.c has no obvious style problems and is ready for submission.
+---------------------------------------
+tests/snippets/test-malloc-split-last.c
+---------------------------------------
+total: 0 errors, 0 warnings, 33 lines checked
+
+tests/snippets/test-malloc-split-last.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-malloc-split-middle.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 41 lines checked
+
+tests/snippets/test-malloc-split-middle.c has no obvious style problems and is ready for submission.
+--------------------------------------------
+tests/snippets/test-malloc-split-one-block.c
+--------------------------------------------
+total: 0 errors, 0 warnings, 29 lines checked
+
+tests/snippets/test-malloc-split-one-block.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-malloc-split-vector.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 37 lines checked
+
+tests/snippets/test-malloc-split-vector.c has no obvious style problems and is ready for submission.
+------------------------------------
+tests/snippets/test-realloc-arrays.c
+------------------------------------
+total: 0 errors, 0 warnings, 44 lines checked
+
+tests/snippets/test-realloc-arrays.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-realloc-block-reuse.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 38 lines checked
+
+tests/snippets/test-realloc-block-reuse.c has no obvious style problems and is ready for submission.
+------------------------------------------
+tests/snippets/test-realloc-coalesce-big.c
+------------------------------------------
+total: 0 errors, 0 warnings, 32 lines checked
+
+tests/snippets/test-realloc-coalesce-big.c has no obvious style problems and is ready for submission.
+--------------------------------------
+tests/snippets/test-realloc-coalesce.c
+--------------------------------------
+total: 0 errors, 0 warnings, 60 lines checked
+
+tests/snippets/test-realloc-coalesce.c has no obvious style problems and is ready for submission.
+------------------------------------------
+tests/snippets/test-realloc-expand-block.c
+------------------------------------------
+total: 0 errors, 0 warnings, 24 lines checked
+
+tests/snippets/test-realloc-expand-block.c has no obvious style problems and is ready for submission.
+--------------------------------------------
+tests/snippets/test-realloc-no-preallocate.c
+--------------------------------------------
+total: 0 errors, 0 warnings, 14 lines checked
+
+tests/snippets/test-realloc-no-preallocate.c has no obvious style problems and is ready for submission.
+--------------------------------------
+tests/snippets/test-realloc-no-split.c
+--------------------------------------
+total: 0 errors, 0 warnings, 36 lines checked
+
+tests/snippets/test-realloc-no-split.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-realloc-preallocate.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 14 lines checked
+
+tests/snippets/test-realloc-preallocate.c has no obvious style problems and is ready for submission.
+-----------------------------------------
+tests/snippets/test-realloc-split-first.c
+-----------------------------------------
+total: 0 errors, 0 warnings, 39 lines checked
+
+tests/snippets/test-realloc-split-first.c has no obvious style problems and is ready for submission.
+----------------------------------------
+tests/snippets/test-realloc-split-last.c
+----------------------------------------
+total: 0 errors, 0 warnings, 47 lines checked
+
+tests/snippets/test-realloc-split-last.c has no obvious style problems and is ready for submission.
+------------------------------------------
+tests/snippets/test-realloc-split-middle.c
+------------------------------------------
+total: 0 errors, 0 warnings, 55 lines checked
+
+tests/snippets/test-realloc-split-middle.c has no obvious style problems and is ready for submission.
+---------------------------------------------
+tests/snippets/test-realloc-split-one-block.c
+---------------------------------------------
+total: 0 errors, 0 warnings, 37 lines checked
+
+tests/snippets/test-realloc-split-one-block.c has no obvious style problems and is ready for submission.
+------------------------------------------
+tests/snippets/test-realloc-split-vector.c
+------------------------------------------
+total: 0 errors, 0 warnings, 49 lines checked
+
+tests/snippets/test-realloc-split-vector.c has no obvious style problems and is ready for submission.
+
+NOTE: Ignored message types: ARRAY_SIZE AVOID_EXTERNS C99_COMMENTS EMAIL_SUBJECT ENOSYS FILE_PATH_CHANGES GIT_COMMIT_ID NEW_TYPEDEFS SYMBOLIC_PERMS
+
+NOTE: If any of the errors are false positives, please report
+      them to the maintainer, see CHECKPATCH in MAINTAINERS.
+make: [Makefile:37: lint] Error 1 (ignored)
+cd .. && checkpatch.pl -f checker/*.sh tests/*.sh
+------------------
+checker/checker.sh
+------------------
+total: 0 errors, 0 warnings, 11 lines checked
+
+checker/checker.sh has no obvious style problems and is ready for submission.
+--------------
+tests/grade.sh
+--------------
+total: 0 errors, 0 warnings, 136 lines checked
+
+tests/grade.sh has no obvious style problems and is ready for submission.
+
+NOTE: Ignored message types: ARRAY_SIZE AVOID_EXTERNS C99_COMMENTS EMAIL_SUBJECT ENOSYS FILE_PATH_CHANGES GIT_COMMIT_ID NEW_TYPEDEFS SYMBOLIC_PERMS
+cd .. && cpplint --recursive src/ tests/
+src/osmem.c:331:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+src/osmem.c:351:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+src/osmem.c:353:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
+Done processing src/osmem.c
+Done processing tests/snippets/test-all.c
+Done processing tests/snippets/test-calloc-arrays.c
+Done processing tests/snippets/test-calloc-block-reuse.c
+Done processing tests/snippets/test-calloc-coalesce-big.c
+Done processing tests/snippets/test-calloc-coalesce.c
+Done processing tests/snippets/test-calloc-expand-block.c
+Done processing tests/snippets/test-calloc-no-preallocate.c
+Done processing tests/snippets/test-calloc-no-split.c
+Done processing tests/snippets/test-calloc-preallocate.c
+Done processing tests/snippets/test-calloc-split-first.c
+Done processing tests/snippets/test-calloc-split-last.c
+Done processing tests/snippets/test-calloc-split-middle.c
+Done processing tests/snippets/test-calloc-split-one-block.c
+Done processing tests/snippets/test-calloc-split-vector.c
+Done processing tests/snippets/test-malloc-arrays.c
+Done processing tests/snippets/test-malloc-block-reuse.c
+Done processing tests/snippets/test-malloc-coalesce-big.c
+Done processing tests/snippets/test-malloc-coalesce.c
+Done processing tests/snippets/test-malloc-expand-block.c
+Done processing tests/snippets/test-malloc-no-preallocate.c
+Done processing tests/snippets/test-malloc-no-split.c
+Done processing tests/snippets/test-malloc-preallocate.c
+Done processing tests/snippets/test-malloc-split-first.c
+Done processing tests/snippets/test-malloc-split-last.c
+Done processing tests/snippets/test-malloc-split-middle.c
+Done processing tests/snippets/test-malloc-split-one-block.c
+Done processing tests/snippets/test-malloc-split-vector.c
+Done processing tests/snippets/test-realloc-arrays.c
+Done processing tests/snippets/test-realloc-block-reuse.c
+Done processing tests/snippets/test-realloc-coalesce-big.c
+Done processing tests/snippets/test-realloc-coalesce.c
+Done processing tests/snippets/test-realloc-expand-block.c
+Done processing tests/snippets/test-realloc-no-preallocate.c
+Done processing tests/snippets/test-realloc-no-split.c
+Done processing tests/snippets/test-realloc-preallocate.c
+Done processing tests/snippets/test-realloc-split-first.c
+Done processing tests/snippets/test-realloc-split-last.c
+Done processing tests/snippets/test-realloc-split-middle.c
+Done processing tests/snippets/test-realloc-split-one-block.c
+Done processing tests/snippets/test-realloc-split-vector.c
+Done processing tests/snippets/test-utils.h
+Total errors found: 3
+make: [Makefile:39: lint] Error 1 (ignored)
+cd .. && shellcheck checker/*.sh tests/*.sh
+
+
+### GRADE
+
+
+Checker:                                                         85/ 90
+Style:                                                            0/ 10
+Total:                                                           85/100
+
+
+### STYLE SUMMARY
+
+
+Total errors found: 3
+total: 9 errors, 17 warnings, 354 lines checked
+total: 0 errors, 2 warnings, 87 lines checked
